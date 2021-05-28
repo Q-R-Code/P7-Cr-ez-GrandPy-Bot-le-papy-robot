@@ -208,7 +208,7 @@ sup {
 }
 
 a {
-  color: #ffffff;
+  color: #666666;
   text-decoration: underline;
 }
 a:hover {
@@ -3852,7 +3852,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #ffffff;
+  color: #666666;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -4554,7 +4554,7 @@ textarea.form-control-lg {
 .page-link {
   position: relative;
   display: block;
-  color: #ffffff;
+  color: #666666;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
