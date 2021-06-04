@@ -10,6 +10,11 @@ app.config.from_object('config')
 def index():
     return render_template('index.html')
 
+@app.route('/query', methods=['POST'])
+def query():
+    msg = request.form['msg']
+    print(msg)
+    return jsonify({'msg': msg })
 
 
 if __name__ == "__main__":

@@ -4,35 +4,17 @@
 
 
 <div class="row justify-content-center h-100">
-    <div class="col-md-8 col-xl-6 chat">
+    <div class="chat">
         <div id="card" class="card">
             <div id='chat'class="card-body msg_card_body">
-                <div class="d-flex justify-content-start mb-4">
-                    <div class="img_cont_msg">
-                        <img src="{{url_for('static', filename='assets/img/grandpy.png')}}"
-                             class="rounded-circle user_img_msg">
-                    </div>
+                <div class="grandpy-msg">
                     <div class="msg_cotainer">
-                        Bonjour, comment puis je t'aider ?
+                        <strong>GrandPy:</strong> Bonjour, comment puis je t'aider ?
                     </div>
                 </div>
-                <div class="d-flex justify-content-end mb-4">
+                <div class="user-msg">
                     <div class="msg_cotainer_send">
-                        test
-                    </div>
-                    <div class="img_cont_msg">
-                        <img src="{{url_for('static', filename='assets/img/user.png')}}"
-                             class="rounded-circle user_img_msg">
-                    </div>
-
-                </div>
-                <div class="d-flex justify-content-start mb-4">
-                    <div class="img_cont_msg">
-                        <img src="{{url_for('static', filename='assets/img/grandpy.png')}}"
-                             class="rounded-circle user_img_msg">
-                    </div>
-                    <div class="msg_cotainer">
-                        Bonjour, comment puis je t'aider ?
+                        <strong>User:</strong> Test
                     </div>
                 </div>
             </div>

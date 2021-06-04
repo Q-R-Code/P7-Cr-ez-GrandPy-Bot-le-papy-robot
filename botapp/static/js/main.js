@@ -1,13 +1,36 @@
+$(document).on("keypress", "form", function(event) {
+    if (event.keyCode == 13 ) {
+    event.preventDefault()
+    return false ;
+    }
+});
 
-function addQuery(event) {
-    event.preventDefault();
-    const newElt = document.getElementById('chat');
-    let divContent = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">test</div></div><div class="img_cont_msg">
-                     '<img src="{{url_for("static", filename="assets/img/user.png")}}" class="rounded-circle user_img_msg"></div>' ;
-    newElt.insertAdjacentHTML('beforeend', divContent) ;
+$(function() {
+    $('#send').on('click', function(event) {
+        event.preventDefault()
+        var userInput = $('#msg').val();
+        if ( userInput !== "") {
+            addUserMsg(userInput);
+        }
+    });
+});
 
-};
 
 
-const submitButton = document.getElementById('send');
-submitButton.addEventListener('click', addQuery);
+
+function addUserMsg(message) {
+
+    var userMsg = document.createElement("strong");
+    userMsg.appendChild(document.createTextNode('User: '));
+
+    var divMsg = document.createElement('div');
+    divMsg.classList.add('msg_cotainer_send');
+    divMsg.appendChild(userMsg);
+    divMsg.appendChild(document.createTextNode(message));
+
+    divCard = document.createElement('div');
+    divCard.classList.add('user-msg');
+    divCard.appendChild(divMsg);
+
+    document.getElementById('chat').append(divCard);
+}
