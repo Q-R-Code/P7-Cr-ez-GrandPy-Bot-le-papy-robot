@@ -2,11 +2,10 @@
 
 {% block content %}
 
-
 <div class="row justify-content-center h-100">
     <div class="chat">
         <div id="card" class="card">
-            <div id='chat'class="card-body msg_card_body">
+            <div id='chat' class="card-body msg_card_body">
                 <div class="grandpy-msg">
                     <div class="msg_cotainer">
                         <strong>GrandPy:</strong> Bonjour, comment puis je t'aider ?
@@ -25,6 +24,8 @@
             </form>
         </div>
     </div>
+    <div class="loader"></div>
+
 </div>
 </div>
 
@@ -32,5 +33,15 @@
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- JQuery -->
 <script type=text/javascript src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<!-- GMAP JS -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&callback=initMap"
+        type="text/javascript" async defer ></script>
 
+{% endblock %}
+
+{% block map %}
+<div id="map" class="map"></div>
+<!-- GMAP JS -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&callback=initMap"
+        type="text/javascript" async defer ></script>
 {% endblock %}
