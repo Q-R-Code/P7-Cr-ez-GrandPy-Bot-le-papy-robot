@@ -1,4 +1,4 @@
-import random
+
 
 MSG_GMAPS_OK = [
     "Voici ce que j'ai trouvé : ",

@@ -27,7 +27,7 @@ def index():
 
 
 @app.route('/query')
-def queryJson():
+def query_json():
     query_input = request.args.get('query', type=str)
     query_parse = parser.cleanQuery(query_input)
     if query_parse != "":
@@ -39,7 +39,8 @@ def queryJson():
             msg_gmaps_ok = "{} {}".format(random.choice(MSG_GMAPS_OK), gmap_address)
             wiki_results = wiki_api.get_wiki_result(gmap_lat, gmap_lng, query_parse)
             if wiki_results:
-                msg_wiki_ok = "{} {}...({})".format(random.choice(MSG_WIKI_OK), wiki_results["summary"], wiki_results["url"])
+                msg_wiki_ok = "{} {}...({})".format(random.choice(MSG_WIKI_OK), wiki_results["summary"],
+                                                    wiki_results["url"])
                 return jsonify(lat=gmap_lat,
                                lng=gmap_lng,
                                msg_gmaps=msg_gmaps_ok,
@@ -47,9 +48,11 @@ def queryJson():
                                msg_fail=None,
                                error=False)
             else:
+                app.logger.info('Failed to find Wiki result')
                 msg_fail = "{}".format(random.choice(MSG_FAIL))
                 return jsonify(msg_fail=msg_fail, error=True)
         else:
+            app.logger.info('Failed to find Gmaps result')
             msg_fail = "{}".format(random.choice(MSG_FAIL))
             return jsonify(msg_fail=msg_fail, error=True)
 

@@ -24,3 +24,5 @@ class GmapsApi:
             }
         except IndexError:
             return False
+
+

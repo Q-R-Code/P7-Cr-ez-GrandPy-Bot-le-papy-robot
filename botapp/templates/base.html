@@ -7,7 +7,7 @@
     <meta name="author" content=""/>
     <title>GrandPy Bot</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico')}}"/>
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Google fonts-->
@@ -59,7 +59,10 @@
             <div class="col-lg-8 text-center">
                 <h2 class="text-white mt-0">Il vous trouvera ce dont vous avez besoin ! Il déchire GrandPy !</h2>
                 <hr class="divider divider-light"/>
-                <p class="text-white-75 mb-4">Explication rapide de quoi taper pour le faire marcher </p>
+                <p class="text-white-75 mb-4">Saisissez une ville, un pays, un magasin etc ... GrandPy fera son maximum
+                    pour vous
+                    indiquer l'emplacement ! Une map apparaitra en dessous du chat. Et en prime, il vous racontera une
+                    petite histoire en rapport avec le lieu !</p>
             </div>
         </div>
     </div>
@@ -69,7 +72,11 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2021 - Quentin Ruffier pour <a href="https://openclassrooms.com/fr/">Openclassrooms</a>
+            Copyright &copy; 2021 - Quentin Ruffier <a
+                href="https://github.com/Q-R-Code/P7-Creez-GrandPy-Bot-le-papy-robot" class="badge badge-primary">
+            <img height="35" width="35" src="{{ url_for('static', filename='assets/img/github.png')}}"></a> pour <a
+                href="https://openclassrooms.com/fr/">Openclassrooms</a>
+
         </div>
     </div>
 </footer>

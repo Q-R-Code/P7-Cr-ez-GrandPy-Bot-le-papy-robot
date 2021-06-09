@@ -28,8 +28,8 @@ $(function() {
 						var lat = (data.lat);
 						var lng = (data.lng);
 
-	            initMap(lat, lng);
-	            $("#map").css({display:"block"});
+	                    initMap(lat, lng);
+	                    $("#map").css({display:"block"});
 					}
 					$(".loader").css({display:"none"});
 				}

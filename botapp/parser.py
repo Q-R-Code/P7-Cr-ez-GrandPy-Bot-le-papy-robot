@@ -18,3 +18,5 @@ class Parser:
             parsed_query = ' '.join(query_input)
         parsed_query = parsed_query.strip()
         return parsed_query
+
+
