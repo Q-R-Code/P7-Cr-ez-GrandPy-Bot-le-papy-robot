@@ -7,7 +7,7 @@
     <meta name="author" content=""/>
     <title>GrandPy Bot</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico')}}"/>
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Google fonts-->
@@ -18,15 +18,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet"/>
-    <!-- JQuery -->
-    <script type=text/javascript src="{{url_for('static', filename='assets/js/jquery.js')}}"></script>
-    <script type=text/javascript src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+
 </head>
 <body id="page-top">
+
+
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#page-top">GrandPy Bot</a>
+        <a class="navbar-brand" href="/">GrandPy Bot</a>
         <a class="btn btn-primary btn-xl" href="#about">À propos </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -38,25 +38,31 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-8 align-self-end h-100">
-                <img src="{{url_for('static', filename='assets/img/grandpy.png')}}">
-                <h1 class="text-white font-weight-bold">GrandPy Bot </h1>
+                <img height="200" width="200" src="{{url_for('static', filename='assets/img/grandpy.png')}}">
+                <h2 id='title' class="text-white font-weight-bold">GrandPy Bot </h2>
                 <p class="text-white-75 mb-5"><small>Le papy robot</small></p>
                 <hr class="divider"/>
             </div>
-            <div class="container px-4 px-lg-5 h-10 0">
+            <div class="container h-100">
                 {% block content %}{% endblock %}
             </div>
         </div>
     </div>
 </header>
+
+{% block map %}{% endblock %}
+
 <!-- About-->
-<section class="page-section bg-primary" id="about">
-    <div class="container px-4 px-lg-5">
+<section class="page-section bg-primary">
+    <div id="about" class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2 class="text-white mt-0">Il vous trouvera ce dont vous avez besoin ! Il déchire GrandPy !</h2>
                 <hr class="divider divider-light"/>
-                <p class="text-white-75 mb-4">Explication rapide de quoi taper pour le faire marcher </p>
+                <p class="text-white-75 mb-4">Saisissez une ville, un pays, un magasin etc ... GrandPy fera son maximum
+                    pour vous
+                    indiquer l'emplacement ! Une map apparaitra en dessous du chat. Et en prime, il vous racontera une
+                    petite histoire en rapport avec le lieu !</p>
             </div>
         </div>
     </div>
@@ -66,15 +72,21 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2021 - Quentin Ruffier pour <a href="https://openclassrooms.com/fr/">Openclassrooms</a>
+            Copyright &copy; 2021 - Quentin Ruffier <a
+                href="https://github.com/Q-R-Code/P7-Creez-GrandPy-Bot-le-papy-robot" class="badge badge-primary">
+            <img height="35" width="35" src="{{ url_for('static', filename='assets/img/github.png')}}"></a> pour <a
+                href="https://openclassrooms.com/fr/">Openclassrooms</a>
+
         </div>
     </div>
 </footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- SimpleLightbox plugin JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<!-- JQuery -->
+<script type=text/javascript src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<!-- GMAP JS -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&callback=initMap"
+        type="text/javascript"></script>
 </body>
 </html>
