@@ -1,9 +1,9 @@
+import os
 import random
 
 from flask import Flask, render_template, jsonify, request
 
 from botapp.api_wiki import WikiApi
-from settings.production import GMAPS_KEY
 from botapp.constantes import STOP_WORDS, MSG_GMAPS_OK, MSG_WIKI_OK, MSG_FAIL
 from botapp.api_gmaps import GmapsApi
 from botapp.parser import Parser
@@ -19,11 +19,11 @@ parser = Parser(STOP_WORDS)
 gmaps_api = GmapsApi()
 # Init the WikiApi class
 wiki_api = WikiApi()
-
+gmaps_key= os.environ.get('GMAPS_KEY')
 
 @app.route('/')
 def index():
-    return render_template('index.html', gmaps_key=GMAPS_KEY)
+    return render_template('index.html', gmaps_key=gmaps_key)
 
 
 @app.route('/query')

@@ -1,1 +1,1 @@
-web: gunicorn -w 4 --pythonpath botapp views:app
+web: gunicorn -w 3  botapp views:app
