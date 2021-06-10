@@ -1,2 +1,1 @@
-web: gunicorn botapp:app
-init: FLASK_APP=run.py
+web: gunicorn -w 4 --pythonpath botapp views:app
