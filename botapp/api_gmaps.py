@@ -1,14 +1,13 @@
-import os
-
 import googlemaps
-from googlemaps.geocoding import geocode
 
+from googlemaps.geocoding import geocode
+from config import GMAPS_KEY
 
 
 class GmapsApi:
 
     def __init__(self):
-        self.client = googlemaps.Client(os.environ.get('GMAPS_KEY'))
+        self.client = googlemaps.Client(GMAPS_KEY)
 
     def get_position(self, query):
         """Return the position of the query parsed"""
@@ -26,5 +25,3 @@ class GmapsApi:
             }
         except IndexError:
             return False
-
-
