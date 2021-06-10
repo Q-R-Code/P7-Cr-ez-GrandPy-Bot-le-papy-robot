@@ -6,8 +6,11 @@ from botapp.api_wiki import WikiApi
 from botapp.constantes import STOP_WORDS, MSG_GMAPS_OK, MSG_WIKI_OK, MSG_FAIL
 from botapp.api_gmaps import GmapsApi
 from botapp.parser import Parser
-from run import app
 
+app = Flask(__name__)
+# Config options - Make sure you created a 'config.py' file.
+app.config.from_object('config')
+# To get one variable, tape app.config['MY_VARIABLE']
 
 # Init the Parser class
 parser = Parser(STOP_WORDS)
