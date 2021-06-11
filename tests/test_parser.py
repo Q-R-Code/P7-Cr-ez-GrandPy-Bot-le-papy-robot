@@ -1,3 +1,7 @@
+"""
+Simple test unitaire with pytest.
+"""
+
 from botapp.parser import Parser
 from botapp.constantes import STOP_WORDS
 

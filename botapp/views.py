@@ -1,3 +1,10 @@
+"""
+This module generate url for main page.
+Initializes Parser, Gmaps and Wikipedia.
+
+
+"""
+
 import random
 
 from flask import Flask, render_template, jsonify, request
@@ -22,11 +29,14 @@ wiki_api = WikiApi()
 
 @app.route('/')
 def index():
+    """The main route of the app"""
     return render_template('index.html', gmaps_key=GMAPS_KEY)
 
 
 @app.route('/query')
 def query_json():
+    """This function is called by JS ajax return json data."""
+
     query_input = request.args.get('query', type=str)
     query_parse = parser.cleanQuery(query_input)
     if query_parse != "":

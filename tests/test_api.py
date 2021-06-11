@@ -1,3 +1,9 @@
+"""
+Simple unitaire Test with pytest.
+For each one, use mock to copy the behavior of API modules googlemaps and wikipedia.
+
+"""
+
 from botapp.api_gmaps import GmapsApi
 from botapp.api_wiki import WikiApi
 
