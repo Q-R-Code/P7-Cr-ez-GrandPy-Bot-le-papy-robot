@@ -1,5 +1,5 @@
 import re
-
+from botapp.constantes import STOP_WORDS
 
 class Parser:
 
@@ -7,7 +7,11 @@ class Parser:
         self.stop_words = stop_words
 
     def cleanQuery(self, query):
-        """Parse the query input to return the keywords"""
+        """
+        Parse the query input to return the keywords
+        >>> Parser(stop_words=STOP_WORDS).cleanQuery("ou ce trouve Fnac amiens ?")
+        'fnac amiens'
+        """
         query_input = re.sub(r"\W+", " ", query).lower()
         query_input = query_input.split(" ")
 

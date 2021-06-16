@@ -41,10 +41,10 @@ def query_json():
     query_parse = parser.cleanQuery(query_input)
     if query_parse != "":
         gmap_search = gmaps_api.get_position(query_parse)
-        gmap_lat = gmap_search["latitude"]
-        gmap_lng = gmap_search["longitude"]
-        gmap_address = gmap_search["address"]
         if gmap_search:
+            gmap_lat = gmap_search["latitude"]
+            gmap_lng = gmap_search["longitude"]
+            gmap_address = gmap_search["address"]
             msg_gmaps_ok = "{} {}".format(random.choice(MSG_GMAPS_OK), gmap_address)
             wiki_results = wiki_api.get_wiki_result(gmap_lat, gmap_lng, query_parse)
             if wiki_results:
@@ -66,5 +66,3 @@ def query_json():
             return jsonify(msg_fail=msg_fail, error=True)
 
 
-if __name__ == "__main__":
-    app.run()

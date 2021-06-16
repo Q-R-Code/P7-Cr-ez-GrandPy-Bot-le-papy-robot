@@ -22,15 +22,15 @@
     <div class="loader"></div>
 
 </div>
-</div>
+
 
 <!-- Core theme JS-->
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- JQuery -->
-<script type=text/javascript src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
 <!-- GMAP JS -->
 <script src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&callback=initMap"
-        type="text/javascript" async defer ></script>
+        async defer></script>
 
 {% endblock %}
 
@@ -38,5 +38,5 @@
 <div id="map" class="map"></div>
 <!-- GMAP JS -->
 <script src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&callback=initMap"
-        type="text/javascript" async defer ></script>
+        async defer></script>
 {% endblock %}
